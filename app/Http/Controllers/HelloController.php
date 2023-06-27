@@ -19,9 +19,9 @@ class HelloController extends Controller
         </style>
         </head>
         <body>
-            
+
         </body>
-        </html>
+        </html>s
         EOF;
 
         $response->setContent($html);
