@@ -16,3 +16,15 @@
 
 {{ '<h2>エスケープされる</h2>' }}
 {!! '<h2>エスケープされない</h2>' !!}
+
+<ol>
+@for($i=1; $i<100; $i++)
+@if($i%2 == 1)
+    @continue
+@elseif ($i<=10)
+<li>No, {{$i}}
+@else
+    @break
+@endif
+@endfor
+</ol>
