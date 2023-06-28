@@ -11,12 +11,14 @@ class HelloController extends Controller
     {
         //$idは
         //ルートパラメータを/hello?id=hogeで渡せる
-        $data = [
-            'msg' => '',
-            'id' => $request->id
-        ];
+        //$data = [
+        //    'msg' => '',
+        //    'id' => $request->id
+        //];
 
-        return view('hello.index', $data);
+        $data = ['one', 'two', 'three', 'four', 'five'];
+
+        return view('hello.index', ['data' => $data]);
     }
 
     public function post(Request $request){

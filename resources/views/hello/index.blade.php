@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<h1>変数をviewに渡す</h1>
+{{--<h1>変数をviewに渡す</h1>
 @if ($msg)
 <p>$msgを表示</p>
 <p>{{$msg}}</p>
 @else
 <p>何か入力してください</p>
-@endif
+@endif--}}
 
 {{--<p>id={{$id}}</p>--}}
 <form method="POST" action="/hello">
@@ -28,3 +28,14 @@
 @endif
 @endfor
 </ol>
+
+
+@foreach($data as $item)
+@if($loop->first)
+<P>※データ一覧</P><ul>
+@endif
+<li>No,{{$loop->iteration}}.{{$item}}</li>
+@if($loop->last)
+</ul><p>------ここまで</p>
+@endif
+@endforeach
