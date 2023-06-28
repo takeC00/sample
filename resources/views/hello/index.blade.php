@@ -8,3 +8,6 @@
     <input type="text" name="msg">
     <input type="submit">
 </form>
+
+{{ '<h2>エスケープされる</h2>' }}
+{!! '<h2>エスケープされない</h2>' !!}
