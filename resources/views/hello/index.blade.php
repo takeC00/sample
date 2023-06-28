@@ -11,15 +11,8 @@
     <p>本文のコンテンツ ※セクション(content)</p>
     <p>必要なだけ記述できる ※セクション(content)</p>
 
-    @component('components.message')
-        @slot('msg_title')
-        CAUTION!
-        @endslot
-
-        @slot('msg_content')
-        これはメッセージの表示です。
-        @endslot
-    @endcomponent
+    <p>Controller value<br>'message'={{$message}}</p>
+    <p>ViewComposer value<br>'view_messsage'={{$view_message}}</p>
 @endsection
 
 @section('footer')
