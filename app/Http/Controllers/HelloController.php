@@ -12,7 +12,7 @@ class HelloController extends Controller
         //$idは
         //ルートパラメータを/hello?id=hogeで渡せる
         $data = [
-            'msg' => 'message',
+            'msg' => '',
             'id' => $request->id
         ];
 
