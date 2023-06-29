@@ -6,6 +6,8 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+
+
 class HelloMiddleWare
 {
     /**
@@ -15,12 +17,14 @@ class HelloMiddleWare
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $data = [
-            ['name'=> 'taro', 'mail'=>'taro@yamada'],
-            ['name'=> 'hanako', 'mail'=>'hanako@komachi'],
-            ['name'=> 'yuuto', 'mail'=>'yuuto@yammaguchi'],
-        ];
-        $request->merge(['data'=>$data]);
-        return $next($request);
+        $response = $next($request);
+        $content = $response->getContent();
+
+        $pattern = '/<middleware>(.*)<\/middleware>/i';
+        $replace = '<a href="http://$1">$1</a>';
+        $content = preg_replace($pattern, $replace, $content);
+
+        $response->setContent($content);
+        return $response;
     }
 }
