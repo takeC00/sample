@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
+use App\Http\Middleware\HelloMiddleWare;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/hello', [HelloController::class, 'index']);
+Route::get('/hello', [HelloController::class, 'index'])
+    ->middleware(HelloMiddleWare::class);
 Route::post('/hello', [HelloController::class, 'post']);
 
 

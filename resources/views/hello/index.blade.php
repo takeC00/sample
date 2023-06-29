@@ -8,11 +8,15 @@
 @endsection
 
 @section('content')
-    <p>本文のコンテンツ ※セクション(content)</p>
-    <p>必要なだけ記述できる ※セクション(content)</p>
-
-    <p>Controller value<br>'message'={{$message}}</p>
-    <p>ViewComposer value<br>'view_messsage'={{$view_message}}</p>
+    <p>本文のコンテンツ</p>
+    <table>
+        @foreach($data as $item)
+        <tr>
+            <th>{{$item['name']}}</th>
+            <td>{{$item['mail']}}</td>
+        </tr>
+        @endforeach
+    </table>
 @endsection
 
 @section('footer')
