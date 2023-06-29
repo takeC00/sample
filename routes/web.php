@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/hello', [HelloController::class, 'index'])
-    ->middleware(HelloMiddleWare::class);
+    ->middleware('hello');
 Route::post('/hello', [HelloController::class, 'post']);
 
 
