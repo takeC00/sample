@@ -30,8 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/hello', [HelloController::class, 'index'])
-    ->middleware('hello');
+Route::get('/hello', [HelloController::class, 'index']);
 Route::post('/hello', [HelloController::class, 'post']);
 
 
