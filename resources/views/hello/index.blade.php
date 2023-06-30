@@ -23,15 +23,15 @@
             @csrf
             <tr>
                 <th>name: </th>
-                <td><input type="text" name="name"></td>
+                <td><input type="text" name="name" value={{old('name')}}></td>
             </tr>
             <tr>
                 <th>mail: </th>
-                <td><input type="text" name="mail"></td>
+                <td><input type="text" name="mail" value={{old('mail')}}></td>
             </tr>
             <tr>
                 <th>age: </th>
-                <td><input type="text" name="age"></td>
+                <td><input type="text" name="age" value={{old('age')}}></td>
             </tr>
             <tr>
                 <th></th>
