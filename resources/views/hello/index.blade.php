@@ -8,6 +8,7 @@
 @endsection
 
 @section('content')
+    <P>{{$msg}}</P>
     <form action="/hello" method="post">
         <table>
             @csrf
