@@ -18,7 +18,7 @@
             @error('name')
             <tr>
                 <th>ERROR</th>
-                <td>{{ $errors->first('name') }}</td>
+                <td>{{ $message }}</td>
             </tr>
             @enderror
             <tr>
@@ -29,7 +29,7 @@
             @error('mail')
             <tr>
                 <th>ERROR</th>
-                <td>{{ $errors->first('mail') }}</td>
+                <td>{{ $message }}</td>
             </tr>
             @enderror
             <tr>
@@ -40,14 +40,14 @@
             @error('age')
             <tr>
                 <th>ERROR</th>
-                <td>{{ $errors->first('age') }}</td>
+                <td>{{ $message }}</td>
             </tr>
             @enderror
             <tr>
                 <th>age: </th>
                 <td><input type="text" name="age" value={{old('age')}}></td>
             </tr>
-            
+
             <tr>
                 <th></th>
                 <td><input type="submit" value="送信"></td>
