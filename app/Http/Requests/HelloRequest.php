@@ -39,7 +39,7 @@ class HelloRequest extends FormRequest
             'name.required' => '名前は必ず入力してください',
             'mail.email' => 'メールアドレスを入力してださい',
             'age.numeric' => '年齢は数字で入力してください',
-            'age.hello' => '入力は偶数のみ',
+            'age.hello' => '入力は偶数のみですよ',
         ];
     }
 }

@@ -4,8 +4,11 @@ namespace App\Providers;
 
 use App\Http\Composers\HelloComposer;
 use App\Http\Validators\HelloValidator;
+use Illuminate\Contracts\Validation\Validator as ValidationValidator;
+use Illuminate\Support\Facades\Validator as FacadesValidator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Validation\Validator as IlluminateValidationValidator;
 use Validator;
 
 
@@ -24,9 +27,9 @@ class HelloServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $validator = $this->app['validator'];
-        $validator->resolver(function($translator, $data, $rules, $messages){
-            return new HelloValidator($translator, $data, $rules, $messages);
+        FacadesValidator::extend('hello', function($attribute, $value, $parameters, $validator){
+            return $value %2 == 0;
         });
+        
     }
 }
