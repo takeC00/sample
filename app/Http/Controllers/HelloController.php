@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Validator as ValidationValidator;
 
 class HelloController extends Controller
 {
@@ -27,17 +28,6 @@ class HelloController extends Controller
 
     public function post(HelloRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'mail' => 'email',
-            'age'=> 'numeric|between:0, 150',
-        ]);
-        if($validator->fails()){
-            return redirect('/hello')
-            ->withErrors($validator)
-            ->withInput();
-        }
-
-        return view('hello.index', ['msg'=>'正しく入力されました']);
+        return view('hello.index', ['msg'=>'正しくちゃんと入力されました']);
     }
 }
