@@ -11,7 +11,7 @@
     <P>{{$msg}}</P>
     <form action="/hello" method="post">
         <table>
-            @csrf
+            {{--@csrf--}}
             @if(count($errors) > 0)
             <p>入力に問題があります。</p>
             @endif
