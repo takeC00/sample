@@ -17,8 +17,8 @@ class ChatUserController extends Controller
 
     public function index()
     {
-        $users = $this->users->all();
-        return view('chatUser.index', ['users' => $users]);
+        
+        return view('chatUser.index', ['users' => $this->users->all()]);
     }
 
     public function update($id)
