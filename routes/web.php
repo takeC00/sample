@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Composers\HelloComposer;
 use App\Http\Controllers\ChatUserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -37,9 +38,17 @@ Route::get('/hello', [HelloController::class, 'index']);
 Route::post('/hello', [HelloController::class, 'post']);
 
 Route::get('/chatUser', [ChatUserController::class, 'index'])->name('chatUser.index');
-Route::get('/chatUser/{id}', [ChatUserController::class, 'update']);
+Route::get('/chatUser/{id}', [ChatUserController::class, 'updateReadId']);
 
 Route::get('/message/{id}', [MessageController::class, 'show']);
 
+Route::get('hello/add', [HelloController::class, 'add']);
+Route::post('hello/add', [HelloController::class, 'create']);
+
+Route::get('hello/edit', [HelloController::class, 'edit']);
+Route::post('hello/edit', [HelloController::class, 'update']);
+
+Route::get('hello/del', [HelloController::class, 'del']);
+Route::post('hello/del', [HelloController::class, 'remove']);
 
 require __DIR__.'/auth.php';

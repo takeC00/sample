@@ -17,11 +17,11 @@ class ChatUserController extends Controller
 
     public function index()
     {
-        
+
         return view('chatUser.index', ['users' => $this->users->all()]);
     }
 
-    public function update($id)
+    public function updateReadId($id)
     {
         $users = $this->users->all();
         $readMessageId = Message::where('chat_user_id', $id)->max('id');
