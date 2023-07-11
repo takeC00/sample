@@ -51,4 +51,6 @@ Route::post('hello/edit', [HelloController::class, 'update']);
 Route::get('hello/del', [HelloController::class, 'del']);
 Route::post('hello/del', [HelloController::class, 'remove']);
 
+Route::get('hello/show',[HelloController::class, 'show']);
+
 require __DIR__.'/auth.php';
