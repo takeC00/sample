@@ -15,14 +15,8 @@ class HelloController extends Controller
 {
     public function index(Request $request)
     {
-        if(isset($request->id))
-        {
-            $param = ['id' => $request->id];
-            $items = DB::select('select * from people where id = :id', $param);
-        } else {
-            $items = DB::select('select * from people');
-        }
-        return view('hello.index', ['items' => $items]);
+        $items = DB::table('people')->get();
+        return view('hello.index', ['items'=>$items]);
     }
 
     public function post(Request $request)
@@ -80,7 +74,7 @@ class HelloController extends Controller
     {
         $param = ['id' => $request->id];
         $item = DB::select('select * from people where id = :id', $param);
-        
+
         return view('hello.del', ['form' => $item[0]]);
     }
 
