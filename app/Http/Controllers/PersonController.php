@@ -16,7 +16,8 @@ class PersonController extends Controller
         return view('person.index', ['items' => $items]);
     }
 
-    
+
+
     /**
      * Store a newly created resource in storage.
      */
