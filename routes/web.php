@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PersonController;
 use App\Http\Middleware\HelloMiddleWare;
 use App\Models\ChatUser;
 
@@ -52,5 +53,7 @@ Route::get('hello/del', [HelloController::class, 'del']);
 Route::post('hello/del', [HelloController::class, 'remove']);
 
 Route::get('hello/show',[HelloController::class, 'show']);
+
+Route::get('/person', [PersonController::class, 'index']);
 
 require __DIR__.'/auth.php';
