@@ -31,9 +31,4 @@ class Person extends Model
         return $query->where('age', '<=', $n);
     }
 
-    protected static function boot()
-    {
-        parent::boot();
-        static::addGlobalScope(new ScopePerson);
-    }
 }
