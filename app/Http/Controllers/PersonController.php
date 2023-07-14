@@ -30,22 +30,22 @@ class PersonController extends Controller
         return view('person.find', $param);
     }
 
-
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function add(Request $request)
     {
-        //
+        return view('person.add');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function create(Request $request)
     {
-        //
+        $this->validate($request, Person::$rules);
+        $person = new Person;
+        $form = $request->all();
+        unset($form['__token']);
+        $person->fill($form)->save();
+        return redirect('/person');
     }
 
     /**
