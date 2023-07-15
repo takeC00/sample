@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <table>
+    <table border="solid">
         <tr>
             <th>PERSON</th>
             <th>BOARD</th>
@@ -17,8 +17,14 @@
         <tr>
             <td>{{$item->getData()}}</td>
             <td>
-                @if($item->board != null)
-                    {{$item->board->getData()}}
+                @if($item->boards != null)
+                <table>
+                    @foreach ($item->boards as $obj)
+                        <tr>
+                            <td>{{$obj->getData()}}</td>
+                        </tr>
+                    @endforeach
+                </table>
                 @endif
             </td>
         </tr>
