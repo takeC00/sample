@@ -23,4 +23,9 @@ class Person extends Model
     {
         return $this->id . ':' . $this->name . '(' .$this->age . ')';
     }
+
+    public function board()
+    {
+        return $this->hasOne(Board::class);
+    }
 }
