@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Composers\HelloComposer;
+use App\Http\Controllers\BoardController;
 use App\Http\Controllers\ChatUserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -68,4 +69,8 @@ Route::post('person/edit', [PersonController::class, 'update']);
 Route::get('person/delete', [PersonController::class, 'delete']);
 Route::post('person/remove', [PersonController::class, 'remove']);
 
+Route::get('board', [BoardController::class, 'index']);
+Route::get('board/add', [BoardController::class, 'add']);
+Route::post('board/add', [BoardController::class, 'create']);
+Route::get('board', [BoardController::class, 'index']);
 require __DIR__.'/auth.php';
