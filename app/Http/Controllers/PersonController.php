@@ -48,11 +48,10 @@ class PersonController extends Controller
         return redirect('/person');
     }
 
-    public function edit(Request $request, string $id)
+    public function edit(Request $request)
     {
-        $person = Person::where('id',$id)->first();
-
-        return view('person.edit',compact('person'));
+        $person = Person::find($request->id);
+        return view('person.edit',['form'=>$person]);
     }
 
     /**
@@ -60,21 +59,30 @@ class PersonController extends Controller
      */
     public function update(Request $request)
     {
-        $person = Person::where('id', $request->id)->first();
-        
-        $person->name = $request->name;
-        $person->mail = $request->mail;
-        $person->age = $request->age;
-        $person->update();
+        $this->validate($request, Person::$rules);
+        $person = Person::find($request->id);
+        $form = $request->all();
+        unset($form['__token']);
+        $person->fill($form)->save();
+
+        //$person = Person::where('id', $request->id)->first();
+        //$person->name = $request->name;
+        //$person->mail = $request->mail;
+        //$person->age = $request->age;
+        //$person->update();
 
         return redirect('/person');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function delete(Request $request)
     {
-        //
+        $person = Person::find($request->id);
+        return view('person.delete', ['form' => $person]);
+    }
+
+    public function remove(Request $request)
+    {
+        Person::find($request->id)->delete();
+        return redirect('/person');
     }
 }

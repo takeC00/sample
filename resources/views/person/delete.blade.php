@@ -1,28 +1,28 @@
 @extends('layouts.helloapp')
 
-@section('title', 'Person.add')
+@section('title', 'Person.DELETE')
 
 @section('menubar')
     @parent
-    編集ページ
+    削除ページ
 @endsection
 
 @section('content')
-    <form action = "/person/edit" method="post">
+    <form action = "/person/remove" method="post">
         <table>
             @csrf
             <input type="hidden" name="id" value={{$form->id}}>
             <tr>
                 <th>name:</th>
-                <td><input type="text" name="name" value="{{$form->name}}"></td>
+                <td>{{$form->name}}</td>
             </tr>
             <tr>
                 <th>mail:</th>
-                <td><input type="text" name="mail" value="{{$form->mail}}"></td>
+                <td>{{$form->mail}}</td>
             </tr>
             <tr>
                 <th>age:</th>
-                <td><input type="text" name="age" value="{{$form->age}}"></td>
+                <td>{{$form->age}}</td>
             </tr>
             <tr>
                 <th></th>
