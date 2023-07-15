@@ -48,12 +48,26 @@ class PersonController extends Controller
         return redirect('/person');
     }
 
+    public function edit(Request $request, string $id)
+    {
+        $person = Person::where('id',$id)->first();
+
+        return view('person.edit',compact('person'));
+    }
+
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $person = Person::where('id', $request->id)->first();
+        
+        $person->name = $request->name;
+        $person->mail = $request->mail;
+        $person->age = $request->age;
+        $person->update();
+
+        return redirect('/person');
     }
 
     /**

@@ -62,4 +62,7 @@ Route::post('person/find', [PersonController::class, 'search']);
 Route::get('person/add', [PersonController::class, 'add']);
 Route::post('person/add', [PersonController::class, 'create']);
 
+Route::get('person/edit/{id}', [PersonController::class, 'edit']);
+Route::post('person/edit', [PersonController::class, 'update']);
+
 require __DIR__.'/auth.php';
