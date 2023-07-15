@@ -13,21 +13,29 @@
             <th>PERSON</th>
             <th>BOARD</th>
         </tr>
-        @foreach($items as $item)
+        @foreach($hasItems as $hasItem)
         <tr>
-            <td>{{$item->getData()}}</td>
+            <td>{{$hasItem->getData()}}</td>
             <td>
-                @if($item->boards != null)
                 <table>
-                    @foreach ($item->boards as $obj)
+                    @foreach ($hasItem->boards as $obj)
                         <tr>
                             <td>{{$obj->getData()}}</td>
                         </tr>
                     @endforeach
                 </table>
-                @endif
             </td>
         </tr>
+        @endforeach
+    </table>
+    <table>
+        <th>
+        投稿のないperson
+        </th>
+        @foreach ($noItems as $noItem)
+            <tr>
+                <td>{{$noItem->getData()}}</td>
+            </tr>
         @endforeach
     </table>
 @endsection

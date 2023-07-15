@@ -28,4 +28,5 @@ class Person extends Model
     {
         return $this->hasMany(Board::class);
     }
+
 }
