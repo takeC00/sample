@@ -8,13 +8,17 @@
 @endsection
 
 @section('content')
-    <table>
+    <table border="solid">
         <tr>
-            <th>DATA</th>
+            <th>Title</th>
+            <th>Message</th>
+            <th>Name</th>
         </tr>
         @foreach ($items as $item)
         <tr>
-            <td>{{$item->getData()}}</td>
+            <td>{{$item->title}}</td>
+            <td>{{$item->message}}</td>
+            <td>{{$item->person->name}}</td>
         </tr>
         @endforeach
     </table>
