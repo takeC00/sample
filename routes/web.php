@@ -10,6 +10,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\RestappController;
 use App\Http\Middleware\HelloMiddleWare;
+use App\Http\Validators\HelloValidator;
 use App\Models\ChatUser;
 
 /*
@@ -79,4 +80,6 @@ Route::resource('rest', RestappController::class);
 
 Route::get('hello/rest', [HelloController::class, 'rest']);
 
+Route::get('hello/session', [HelloController::class, 'sessionGet']);
+Route::post('hello/session', [HelloController::class, 'sessionPut']);
 require __DIR__.'/auth.php';
