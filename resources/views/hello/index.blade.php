@@ -13,6 +13,14 @@
 @endsection
 
 @section('content')
+@if(Auth::check())
+<p>User: {{$user->name . '(' . $user->email . ')'}}</p>
+@else
+<p>ログインしてません
+    <a href="/login">ログイン</a>
+    <a href="/register">登録</a>
+</p>
+@endif
     <table>
         <tr>
             <th><a href="/hello?sort=name">Name</a></th>
@@ -32,7 +40,8 @@
         </tr>
         @endforeach
     </table>
-    {{$items->appends(['sort' => $sort])->links()}}
+    {{$items->appends(['sort' =>
+        $sort])->links()}}
 @endsection
 
 @section('footer')

@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/hello', [HelloController::class, 'index']);
+Route::get('/hello', [HelloController::class, 'index'])->middleware('auth');
 Route::post('/hello', [HelloController::class, 'post']);
 
 Route::get('/chatUser', [ChatUserController::class, 'index'])->name('chatUser.index');
