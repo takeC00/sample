@@ -77,4 +77,6 @@ Route::get('board', [BoardController::class, 'index']);
 
 Route::resource('rest', RestappController::class);
 
+Route::get('hello/rest', [HelloController::class, 'rest']);
+
 require __DIR__.'/auth.php';
